@@ -32,6 +32,10 @@ byte _SPEAKER = 9;
 byte _SPEAKER = 5;
 #endif
 
+#if define(__AVR_AT90usb1286__)
+byte _SPEAKER = 27;
+#endif
+
 void Volume::alternatePin(bool enabled) {
   if (enabled == true) {
 	  
@@ -45,6 +49,10 @@ void Volume::alternatePin(bool enabled) {
 
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__)
     _SPEAKER = 6;
+#endif
+	  
+#if define(__AVR_AT90usb1286__)
+    _SPEAKER = 0;
 #endif
 
   }
